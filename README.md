@@ -4,3 +4,10 @@
 
 O pacote mwgo mongodb wrapper Go é um wrapper do mongo-go-driver que define as coleções e as APIs CRUD nelas.
 
+```go 
+    urlMongo := "mongodb://admin:password123@localhost:6000/"
+
+    collection := mwgo.NewCollection(urlMongo, "your_database", "your_collections") 
+
+    collection.InsertOne("")
+```
