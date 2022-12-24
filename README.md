@@ -2,4 +2,5 @@
 
 [![GoDoc](https://godoc.org/github.com/rrgaya/mongodb-wrapper-go?status.svg)](https://godoc.org/github.com/rrgaya/mongodb-wrapper-go)
 
-Este em um wrapper simples do MongoDB para Go. Ainda esta em sua versão 0.0.0v.
+O pacote mwgo mongodb wrapper Go é um wrapper do mongo-go-driver que define as coleções e as APIs CRUD nelas.
+
