@@ -1,4 +1,4 @@
-module github.com/rrgaya/mwgo
+module github.com/rrgaya/mongodb-wrapper-go
 
 go 1.19
 

@@ -5,7 +5,7 @@ import (
 	"log"
 	"time"
 
-	"github.com/rrgaya/mwgo/tools"
+	"github.com/rrgaya/mongodb-wrapper-go/tools"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
