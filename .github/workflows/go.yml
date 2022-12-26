@@ -22,7 +22,7 @@ jobs:
           port: 27017
       - name: Test mongo connection
         id: test_mongo_connection
-        run: "mongo localhost:27017"
+        # run: "mongo localhost:27017"
   build:
     runs-on: ubuntu-latest
     steps:
