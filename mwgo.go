@@ -12,7 +12,7 @@ import (
 
 const OperationTimeOut = 5
 
-func NewCollection(uriConnection, dbName, collectionName string) *mongo.Collection {
+func NewCollection(uriConnection, dbName, collectionName string) (*mongo.Collection, error) {
 	Ctx, cancel := context.WithTimeout(context.Background(), OperationTimeOut*time.Second)
 	defer cancel()
 	client, err := mongo.Connect(Ctx, options.Client().ApplyURI(tools.URLConnection(uriConnection)))
@@ -21,5 +21,5 @@ func NewCollection(uriConnection, dbName, collectionName string) *mongo.Collecti
 	}
 	log.Print("Connection Established")
 	collection := client.Database(dbName).Collection(collectionName)
-	return collection
+	return collection, nil
 }

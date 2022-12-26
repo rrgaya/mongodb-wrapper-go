@@ -13,7 +13,9 @@ O package mongodb wrapper Go é um wrapper do mongo-go-driver que define as cole
     )
     
     // MWGo NewColletion já faz trata o parse da url e também gerencianmento de context
-    collection := mwgo.NewCollection("your_url_connection", "your_database", "your_collections") 
-
-    collection.InsertOne("")
+    collection, err := mwgo.NewCollection("your_url_connection", "your_database", "your_collections") 
+    if err != nil{
+        log.Println("error on connections with mongodb.")
+    }
+    collection.InsertOne({})
 ```
