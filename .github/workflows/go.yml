@@ -25,17 +25,3 @@ jobs:
 
     - name: Test
       run: go test -v ./...
-  service:
-    runs-on: ubuntu-latest
-    services:
-      mongodb:
-        image: mongo
-        options: >-
-          --health-cmd "mongosh --eval 'db.version()'"
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
-        ports:
-          - 27017:27017
-    steps:
-    - run: mongosh --eval "db.version()"
