@@ -17,9 +17,9 @@ func NewCollection(uriConnection, dbName, collectionName string) (*mongo.Collect
 	defer cancel()
 	client, err := mongo.Connect(Ctx, options.Client().ApplyURI(tools.URLConnection(uriConnection)))
 	if err != nil {
-		log.Panic(err)
+		return nil, err
 	}
-	log.Print("Connection Established")
 	collection := client.Database(dbName).Collection(collectionName)
+	log.Print("Connection Established")
 	return collection, nil
 }

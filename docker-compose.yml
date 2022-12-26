@@ -3,7 +3,7 @@ version: "3.8"
 services:
   mongo:
     container_name: mongo_db_to_tests
-    image: mongo:6.0
+    image: mongo:latest
     ports:
       - 27017:27017
     volumes:
