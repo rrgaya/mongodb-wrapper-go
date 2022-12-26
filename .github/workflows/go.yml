@@ -10,19 +10,6 @@ on:
     branches: [ "main" ]
 
 jobs:
-  test_mongo_action:
-    runs-on: ubuntu-latest
-    name: Test mongo-action
-    steps:
-      - name: Create mongo Docker container
-        id: build_mongo_docker
-        uses: DigiPie/mongo-action@v1.0.1
-        with:
-          image-version: latest
-          port: 27017
-      - name: Test mongo connection
-        id: test_mongo_connection
-        # run: "mongo localhost:27017"
   build:
     runs-on: ubuntu-latest
     steps:
