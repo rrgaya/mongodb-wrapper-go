@@ -5,7 +5,7 @@
 
 O package mongodb wrapper Go é um wrapper do mongo-go-driver que define as coleções e as APIs CRUD nelas.
 
-```go 
+```golang
     package your_pagkage
 
     import (
