@@ -25,6 +25,8 @@ jobs:
 
     - name: Test
       run: go test -v ./...
+      env:
+        CI: True
   # test_mongo_action:
   #   runs-on: ubuntu-latest
   #   name: Test mongo-action

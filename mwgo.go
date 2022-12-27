@@ -19,10 +19,12 @@ func NewCollection(uriConnection, dbName, collectionName string) (*mongo.Collect
 
 	client, err := mongo.Connect(ctx, options.Client().ApplyURI(tools.URLConnection(uriConnection)))
 	if err != nil {
+		log.Println("Error connecting to mongodb: ", err)
 		return nil, err
 	}
 
 	if err = client.Ping(ctx, nil); err != nil {
+		log.Println("Error pinging server: ", err)
 		return nil, err
 	}
 

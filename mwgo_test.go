@@ -2,6 +2,7 @@ package mwgo
 
 import (
 	"context"
+	"os"
 	"testing"
 	"time"
 
@@ -9,7 +10,15 @@ import (
 	"go.mongodb.org/mongo-driver/bson"
 )
 
+func skipCI(t *testing.T) {
+	if os.Getenv("CI") != "" {
+		t.Skip("Skipping testing in CI environment")
+	}
+}
+
 func TestNewCollection(t *testing.T) {
+	skipCI(t)
+
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*5)
 	defer cancel()
 
