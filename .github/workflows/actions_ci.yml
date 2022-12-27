@@ -12,27 +12,38 @@ on:
 jobs:
   build_mongo:
     runs-on: ubuntu-latest
-    container: golang:1.19-bullseye
+    steps:
+    - uses: actions/checkout@v3
 
-    services:
-      mongodb:
-        image: rrgaya/mongodb
-        options: ->
-          - test "mongo localhost:27017/test --quiet --eval 'quit(db.runCommand({ ping: 1 }).ok ? 0 : 2)'"
-          # interval: 10s
-          # timeout: 5s
-          # retries: 5
-    
+    - name: Criando container MongoDB
+      id: build_mongo_docker
+      uses: docker://rrgaya/mongodb:latest
+      with:
+        image-version: latest
+        port: 27017
+
+    - name: Testando conexão com o MongoDB
+      id: test_mongo_connection
+      run: | 
+        sudo mongo localhost:27017
+        sleep(10000);
+        exit 1
+        
+  build_go:
+    runs-on: ubuntu-latest
+    name: Test mongo-action
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-go@v3
-        with:
-          go-version: 1.19
 
-      # - name: Build
-      #     run: go build -v ./...
+      - name: Set up Go
+          uses: actions/setup-go@v3
+          with:
+            go-version: 1.19
+
+      - name: Build
+          run: go build -v ./...
 
       - name: Tests Unitários
         run: go test -v ./...
-        env:
-          CI: True
+          env:
+            CI: True
