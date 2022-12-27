@@ -33,7 +33,7 @@ jobs:
     steps:
       - name: Create mongo Docker container
         id: build_mongo_docker
-        uses: rrgaya/mongodb:latest
+        uses: docker://rrgaya/mongodb:latest
         with:
           image-version: latest
           port: 27017
