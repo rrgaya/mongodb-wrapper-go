@@ -12,13 +12,20 @@ import (
 
 const OperationTimeOut = 5
 
+// NewCollection retorna uma collection
 func NewCollection(uriConnection, dbName, collectionName string) (*mongo.Collection, error) {
-	Ctx, cancel := context.WithTimeout(context.Background(), OperationTimeOut*time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), OperationTimeOut*time.Second)
 	defer cancel()
-	client, err := mongo.Connect(Ctx, options.Client().ApplyURI(tools.URLConnection(uriConnection)))
+
+	client, err := mongo.Connect(ctx, options.Client().ApplyURI(tools.URLConnection(uriConnection)))
 	if err != nil {
 		return nil, err
 	}
+
+	if err = client.Ping(ctx, nil); err != nil {
+		return nil, err
+	}
+
 	collection := client.Database(dbName).Collection(collectionName)
 	log.Print("Connection Established")
 	return collection, nil
