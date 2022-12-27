@@ -25,16 +25,16 @@ jobs:
 
     - name: Test
       run: go test -v ./...
-  test_mongo_action:
-    runs-on: ubuntu-latest
-    name: Test mongo-action
-    steps:
-      - name: Create mongo Docker container
-        id: build_mongo_docker
-        uses: rrgaya/mongodb@latest
-        with:
-          image-version: latest
-          port: 27017
-      - name: Test mongo connection
-        id: test_mongo_connection
-        run: "sudo mongo localhost:27017"
+  # test_mongo_action:
+  #   runs-on: ubuntu-latest
+  #   name: Test mongo-action
+  #   steps:
+  #     - name: Create mongo Docker container
+  #       id: build_mongo_docker
+  #       uses: rrgaya/mongodb@latest
+  #       with:
+  #         image-version: latest
+  #         port: 27017
+  #     - name: Test mongo connection
+  #       id: test_mongo_connection
+  #       run: "sudo mongo localhost:27017"
