@@ -22,7 +22,7 @@ func TestNewCollection(t *testing.T) {
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*5)
 	defer cancel()
 
-	collectionTest, err := NewCollection("mongodb://admin:password123@mongodb:27017", "test", "test")
+	collectionTest, err := NewCollection("mongodb://admin:password@123@mongodb:27017", "test", "test")
 	collectionTest.InsertOne(ctx, bson.D{})
 	assert.Nil(t, err)
 }
