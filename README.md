@@ -1,6 +1,6 @@
 # Mongodb Wrapper Go
 
-![Github Actions](https://github.com/rrgaya/mongodb-wrapper-go/actions/workflows/go.yml/badge.svg)
+![Github Actions](https://github.com/rrgaya/mongodb-wrapper-go/actions/workflows/actions_ci.yml/badge.svg)
 [![GoDoc](https://godoc.org/github.com/rrgaya/mongodb-wrapper-go?status.svg)](https://godoc.org/github.com/rrgaya/mongodb-wrapper-go)
 
 O package mongodb wrapper Go é um wrapper do mongo-go-driver que define as coleções e as APIs CRUD nelas.
