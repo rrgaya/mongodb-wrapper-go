@@ -17,11 +17,11 @@ jobs:
     services:
       mongodb:
         image: rrgaya/mongodb
-        healthcheck:
-          test: "mongo localhost:27017/test --quiet --eval 'quit(db.runCommand({ ping: 1 }).ok ? 0 : 2)'"
-          interval: 10s
-          timeout: 5s
-          retries: 5
+        options: ->
+          - test "mongo localhost:27017/test --quiet --eval 'quit(db.runCommand({ ping: 1 }).ok ? 0 : 2)'"
+          # interval: 10s
+          # timeout: 5s
+          # retries: 5
     
     steps:
       - uses: actions/checkout@v3
