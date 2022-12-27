@@ -9,15 +9,7 @@ jobs:
         image: rrgaya/mongodb
         env:
           MONGO_INITDB_ROOT_USERNAME: admin
-          MONGO_INITDB_ROOT_PASSWORD: password123
-        #   POSTGRES_PASSWORD: minhareceita
-        #   POSTGRES_USER: minhareceita
-        #   POSTGRES_DB: minhareceita
-        # options: >-
-        #   --health-cmd pg_isready
-        #   --health-interval 10s
-        #   --health-timeout 5s
-        #   --health-retries 5
+          MONGO_INITDB_ROOT_PASSWORD: password@123
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-go@v3
@@ -25,4 +17,4 @@ jobs:
           go-version: "1.19"
       - run: "go test --race ./..."
         # env:
-        #   TEST_DATABASE_URL: postgres://minhareceita:minhareceita@postgres:5432/minhareceita?sslmode=disable
+        #   TEST_DATABASE_URL: postgres://admin:password@123@mongodb:5432/minhareceita?sslmode=disable
