@@ -1,0 +1,26 @@
+name: MongoDBTest
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container: golang:1.19-bullseye
+    services:
+      postgres:
+        image: rrgaya/mongodb
+        # env:
+        #   POSTGRES_PASSWORD: minhareceita
+        #   POSTGRES_USER: minhareceita
+        #   POSTGRES_DB: minhareceita
+        # options: >-
+        #   --health-cmd pg_isready
+        #   --health-interval 10s
+        #   --health-timeout 5s
+        #   --health-retries 5
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-go@v3
+        with:
+          go-version: "1.19"
+      - run: "go test --race ./..."
+        # env:
+        #   TEST_DATABASE_URL: postgres://minhareceita:minhareceita@postgres:5432/minhareceita?sslmode=disable
