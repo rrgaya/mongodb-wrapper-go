@@ -17,7 +17,7 @@ func skipCI(t *testing.T) {
 }
 
 func TestNewCollection(t *testing.T) {
-	skipCI(t)
+	// skipCI(t)
 
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*5)
 	defer cancel()

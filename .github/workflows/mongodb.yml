@@ -7,7 +7,9 @@ jobs:
     services:
       postgres:
         image: rrgaya/mongodb
-        # env:
+        env:
+          MONGO_INITDB_ROOT_USERNAME: admin
+          MONGO_INITDB_ROOT_PASSWORD: password123
         #   POSTGRES_PASSWORD: minhareceita
         #   POSTGRES_USER: minhareceita
         #   POSTGRES_DB: minhareceita
